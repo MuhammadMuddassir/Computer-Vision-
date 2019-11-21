@@ -24,7 +24,7 @@ function P = EstimPNormML(Ximg, Xwrld, Pest)
 [Xwrld_norm, T2] = Norm3Dpoint(Xwrld); % Measurement Space: N = 3n
 Pest_norm = T1*Pest*T2^-1;
 p0 = reshape(Pest_norm', 1, []); % initial estimate of P
-%% Optimization
+% Optimization
 [p_opt, ~, ~, ~, ~] = LMopt(p0, Ximg_norm, Xwrld_norm);
 Popt_tilde = reshape(p_opt, 4, 3)';
 Popt_tilde = Popt_tilde./Popt_tilde(3, 3);
