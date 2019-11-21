@@ -1,7 +1,7 @@
-%% Basic Equations/DLT
+% Basic Equations/DLT
 
 
- %% general parameter
+ % general parameter
  xmin = -3.0; xmax = +3.0;
  ymin = -3.0; ymax = +3.0;
  zmin = +0.0; zmax = +2.5;
@@ -14,7 +14,7 @@
  axis([xmin xmax ymin ymax zmin zmax]);
  view(60, 25);
 
- %% extrinsic camera parameter
+ % extrinsic camera parameter
  % camera centres
  C1 = [ 2.6607; 0.1006; 2.4089]; % Smart Sensor 605
  C2 = [-1.6157; 2.7995; 2.4119]; % Smart Sensor 601
@@ -30,12 +30,12 @@
  T2 = -R2*C2;
  T3 = -R3*C3;
 
- %% setup homographies
+ % setup homographies
  H1 = [R1 T1; 0 0 0 1];
  H2 = [R2 T2; 0 0 0 1]; 
  H3 = [R3 T3; 0 0 0 1];
 
- %% plot WCS
+ % plot WCS
  i = [1; 0; 0];
  j = [0; 1; 0];
  k = [0; 0; 1];
@@ -46,7 +46,7 @@
  plot3([o(1) k(1)], [o(2) k(2)], [o(3) k(3)], 'b-','LineWidth', 2);
  text(o(1), o(2), o(3), ' WCS');
 
- %% plot camera coordinate systems
+ % plot camera coordinate systems
  i1 = H1^-1*[i; 1]; 
  j1 = H1^-1*[j; 1];
  k1 = H1^-1*[k; 1];
@@ -76,7 +76,7 @@
  plot3([o3(1) k3(1)], [o3(2) k3(2)], [o3(3) k3(3)], 'b-','LineWidth', 2);
  text(o3(1), o3(2), o3(3), ' Cam 3');
 
- %% setup camera matices
+ % setup camera matices
  f = 500.0e-3; % 5mm
  px = 250.0e-5; % 5um
  py = 250.0e-5; % 5um
@@ -89,7 +89,7 @@
  P1 = K*R1*[eye(3) -C1]; % P1 = P1./P1(end);
  P2 = K*R2*[eye(3) -C2]; % P2 = P2./P2(end);
  P3 = K*R3*[eye(3) -C3]; % P3 = P3./P3(end);
- %% draw planes
+ % draw planes
  [X, Y, Z] = meshgrid(xmin:0.1:xmax, ymin:0.1:ymax,zmin:0.1:zmax);
  Xwrld = [X(:)'; Y(:)'; Z(:)'; ones(1, numel(X))];
 
@@ -118,7 +118,7 @@ size(x)),'FaceColor', 'black', 'EdgeColor', 'none');
 h3 = surf(reshape(Xwrld3(1, :), size(x)), reshape(Xwrld3(2, :), size(x)), reshape(Xwrld3(3, :),
 size(x)), 'FaceColor', 'black', 'EdgeColor', 'none');
  alpha(h1, 0.25); alpha(h2, 0.25); alpha(h3, 0.25);
- %% generate world points
+ % generate world points
  Xwrld = [ -1.0 +1.0 +1.0 -1.0 -1.0 +1.0 +1.0 -1.0 0.0 +3.0 +3.0 -2.5 -2.5 -0.5 -0.5 -2.5 -2.5 -0.5 -0.5 -1.5 -0.5 -2.5 0.0 0.0 0.0 0.0 +1.0 +1.0 +1.0 +1.0 +2.0 0.0 0.0 +1.0 +1.0 +1.0 +1.0 +1.0 +1.0 +1.0 +1.0 +1.0 +1.0 +1.0];
 0149 plot3(Xwrld(1, :), Xwrld(2, :), Xwrld(3, :), 'm*',
 'MarkerSize', 5);
@@ -133,7 +133,7 @@ size(x)), 'FaceColor', 'black', 'EdgeColor', 'none');
  [Xwrld1(3) Xwrld2(3)], '-m')
  end
 
- %% generate images
+ % generate images
  Ximg1 = P1*Xwrld;
  Ximg2 = P2*Xwrld;
  Ximg3 = P3*Xwrld;
@@ -155,7 +155,7 @@ size(x)), 'FaceColor', 'black', 'EdgeColor', 'none');
  end
  
  
- %% Direct Linear Transformation (DLT) Algorithm
+ % Direct Linear Transformation (DLT) Algorithm
 
 Plot Transformed Houses
  plot(X2(1, subset), X2(2, subset), 'og'); hold on;
@@ -176,7 +176,7 @@ Plot Transformed Houses
  axis equal
  text(6, 5, ‘…', ...
 
-%% Compute the Homography
+% Compute the Homography
  X2 = [X2; ones(1, size(X2, 2))];
  x_h_ = X2(:, subset);
  x_h = X(:, subset);
