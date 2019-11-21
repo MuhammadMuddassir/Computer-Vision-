@@ -58,9 +58,9 @@
  
  
  
-%% Perspective Projection - The Projection Matrix P
+%% Perspective Projection - %% The Projection Matrix P
 %% Camera Matrix
- % Intrinsic Camera Parameter
+ %% Intrinsic Camera Parameter
  f = 2; % Focal Length
  K = diag([f f 1]); % Intrinsic camera Parameter
  K(1, 3) = 0;
