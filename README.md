@@ -2,7 +2,9 @@
  
 Affine geometry is the study of parallel lines.
 
-![](https://raw.githubusercontent.com/MuhammadMuddassir/Computer-Vision-/master/images/affine.PNG?token=AJPGPA6GEH7JZDKXZCOA4AS523AUG)
+<img src="https://github.com/MuhammadMuddassir/Computer-Vision-/blob/master/images/3d_axis.PNG?raw=true" Width="300">
+
+<img src="https://github.com/MuhammadMuddassir/Computer-Vision-/blob/master/images/Line_at_infinity.PNG?raw=true" Width="300">
 
   
  
