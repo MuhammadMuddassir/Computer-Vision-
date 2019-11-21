@@ -58,9 +58,9 @@
  
  
  
-%% Perspective Projection - %% The Projection Matrices
-%% Camera Matrices
-%% Intrinsic Camera Parameter
+% Perspective Projection - The Projection Matrices
+% Camera Matrices
+% Intrinsic Camera Parameter
  f = 2; % Focal Length
  K = diag([f f 1]); % Intrinsic camera Parameter
  K(1, 3) = 0;
@@ -70,16 +70,16 @@
  C = [0; 0; 0]; % Camera Centre
  R = [1 0 0; 0 0 1; 0 1 0]; % We change x and y coordinates
 
-%% Camera Matrix
+% Camera Matrix
 % Intrinsic Camera Parameter
  f = 2; % Focal Length
  K = diag([f f 1]); % Intrinsic camera Parameter
  K(1, 3) = 3;
  K(2, 3) = 2;
 
-%% Perspective Projection - The Projection Matrix P - Basler acA640-100gc
+% Perspective Projection - The Projection Matrix P - Basler acA640-100gc
  
- %% Example Projection Matrix (Computed)
+ % Example Projection Matrix (Computed)
 
  fx = 4.5e-3; % Focal Length 4.5mm
  fy = 4.5e-3; % Focal Length 4.5mm
